@@ -26,42 +26,27 @@ namespace Homework_07 {
         /// <summary>
         /// Название мероприятия
         /// </summary>
-        public string Title {
-            get { return _title; }
-            set {}
-        }
+        public string Title => _title;
 
         /// <summary>
         /// Описание мероприятия
         /// </summary>
-        public string Description {
-            get { return _description; }
-            set {}
-        }
+        public string Description => _description;
 
         /// <summary>
         /// Дата проведения мероприятия
         /// </summary>
-        public DateTime Date {
-            get { return _date; }
-            set {}
-        }
+        public DateTime Date => _date;
 
         /// <summary>
         /// Участники мероприятия
         /// </summary>
-        public string Members {
-            get { return _members; }
-            set {}
-        }
+        public string Members => _members;
 
         /// <summary>
         /// Важность мероприятия
         /// </summary>
-        public int Importance {
-            get { return _importance; }
-            set {}
-        }
+        public int Importance => _importance;
 
         private string _title;
 

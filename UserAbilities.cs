@@ -200,7 +200,13 @@ namespace Homework_07 {
             return result;
         }
         
-        
+        /// <summary>
+        /// Проверяет ввод пользователя для создания даты
+        /// </summary>
+        /// <param name="valueName"></param>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
         private int CheckValueForUserDate(string valueName, int minValue, int maxValue) {
             object value;
             int convertedValue;
@@ -214,22 +220,25 @@ namespace Homework_07 {
                 Console.ForegroundColor = ConsoleColor.White;
 
                 CheckValueForUserDate(valueName, minValue, maxValue);
+            } else {
+               convertedValue = Convert.ToInt32(value.ToString());
+               
+               if (convertedValue < minValue || convertedValue > maxValue) {
+                   Console.ForegroundColor = ConsoleColor.DarkRed;
+                   Console.WriteLine($"Указанное значение слишком мало или велико, укажите {valueName} заново\n");
+                   Console.ForegroundColor = ConsoleColor.White;
+                                              
+                   CheckValueForUserDate(valueName, minValue, maxValue);
+               }      
+               return convertedValue;           
             }
-
-            convertedValue = Convert.ToInt32(value.ToString());
-
-            if (convertedValue < minValue || convertedValue > maxValue) {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"Указанное значение слишком мало или велико, укажите {valueName} заново\n");
-                Console.ForegroundColor = ConsoleColor.White;
-                
-                CheckValueForUserDate(valueName, minValue, maxValue);
-            }
-            
-            return convertedValue;
+            return minValue;
         }
         
-
+        /// <summary>
+        /// Опрашивает пользователя и создаёт дату
+        /// </summary>
+        /// <returns></returns>
         private DateTime CreateUserDate() {
             string dateString;
             int daysInMonth;
